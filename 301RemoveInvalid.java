@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Solution {
     public List<String> removeInvalidParentheses(String s) {
-        List<String> ans = new ArrayList<>();
+        ArrayList<String> ans = new ArrayList<>();
         remove(s, ans, 0, 0, new char[]{'(', ')'});
         return ans;
     }
@@ -22,9 +22,10 @@ public class Solution {
             return;
         }
         String reversed = new StringBuilder(s).reverse().toString();
-        if (par[0] == '(') // finished left to right
+        if (par[0] == '(') {
             remove(reversed, ans, 0, 0, new char[]{')', '('});
-        else // finished right to left
+        } else{
             ans.add(reversed);
+        } 
     }
 }
